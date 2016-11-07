@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Familias</title>
+{% extends "families/base.html" %}
 
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-</head>
-<body>
-  <h1>Familias:</h1>
+  {% block title %}
+    <title>Familias</title>
+  {% endblock %}
 
-  {% for family in families %}
-    <div class="family">
+  {% block body %}
+    <h1>Familias <a href="{% url 'families_new_family' %}">(crear nueva)</a></h1>
+    {% for family in families %}
+      <div class="family">
 
-      <h2>{{ family.nombre }}</h2>
-      <p>{{ family.persona_set.all.count }} miembro(s)</p>
-      <p><a href="{% url 'families_family_detail' family.pk %}">Ver detalle</a></p>
+        <h2>{{ family.nombre }}</h2>
+        <p>{{ family.persona_set.all.count }} miembro(s)</p>
+        <p><a href="{% url 'families_family_detail' family.pk %}">Ver detalle</a></p>
 
-    </div>
-  {% endfor %}
-</body>
-</html>
+      </div>
+    {% endfor %}
+  {% endblock %}

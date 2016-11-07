@@ -1,0 +1,26 @@
+{% extends "families/base.html" %}
+
+{% block title %}
+<title>New Family</title>
+{% endblock %}
+
+  {% block body %}
+    <h1>New family</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- <p>
+            {{ familia_form.nombre.label_tag }}
+            {{ familia_form.nombre }}
+        </p>
+        <p>
+            {{ familia_form.pais.label_tag }}
+            {{ familia_form.pais }}
+        </p> -->
+        {{ familia_form.as_p }}
+        <button type="submit">Guardar</button>
+
+        <p><strong>{{ message }}</strong></p>
+    </form>
+  {% endblock %}

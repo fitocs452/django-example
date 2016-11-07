@@ -1,0 +1,31 @@
+{% extends "families/base.html" %}
+
+{% block title %}
+  <title>Personas</title>
+{% endblock %}
+
+{% block body %}
+  <h1>Personas <a href="{% url 'families_new_person' %}">(crear nueva)</a></h1>
+  <table>
+    <thead>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Edad</th>
+      <th>Familia</th>
+      <th>Acciones</th>
+    </thead>
+  {% for persona in people %}
+    {# <div class="family"> #}
+
+    <tr>
+      <td>{{ persona.nombre }}</td>
+      <td>{{ persona.apellido }}</td>
+      <td>{{ persona.edad }}</td>
+      <td>{{ persona.familia }}</h2>
+
+      <td><p><a href="{% url 'families_edit_person' persona.pk %}">Editar</a></p></td>
+    </tr>
+    {# </div> #}
+  {% endfor %}
+  </table>
+{% endblock %}
